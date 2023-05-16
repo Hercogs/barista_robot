@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="cup_holder" params="link_name">
+
+        <link name="${link_name}">
+
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <cylinder length="0.09" radius="0.16"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <cylinder length="0.09" radius="0.16"/>
+                </geometry>
+            </collision>
+
+            <inertial>
+                <mass value="4"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="0.0283" ixy="0" ixz="0" iyy="0.0283" iyz="0" izz="0.0512"/>
+            </inertial>
+
+        </link>
+
+    <gazebo reference="${link_name}">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    </xacro:macro>    
+
+</robot>
